@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solution", "Solution\Soluti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Constants", "Constants\Constants.csproj", "{87CA5879-2AC1-40F4-BA2F-45296223EA18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTest.csproj", "{A2148ABE-8ADE-4430-9E08-BB993E0AC2B6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest.MarsRover", "UnitTest\UnitTest.MarsRover.csproj", "{A2148ABE-8ADE-4430-9E08-BB993E0AC2B6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Extensions", "Extensions\Extensions.csproj", "{5C8E0177-E636-4069-8DD0-A5C8C8C26289}"
 EndProject

@@ -1,6 +1,7 @@
 ﻿using Constants;
 using Helper;
 using System;
+using Constants;
 
 namespace Solution
 {
@@ -113,7 +114,7 @@ namespace Solution
                 log.Error(ex);
                 returnObject.Results.Add(new Result
                 {
-                    ErrorCode = ex.Message,
+                    ErrorCode = nameof(ErrorCodes.SystemError),
                     ErrorMessage = ex.Message
                 });
             }
