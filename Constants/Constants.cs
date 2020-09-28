@@ -17,4 +17,11 @@
         East,
         West
     }
+
+    public static class Way
+    {
+        public const char Left = 'L';
+        public const char Right = 'R';
+        public const char Swivel = 'M';
+    }
 }

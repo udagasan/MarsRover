@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Solution;
+using System.Linq;
 
 namespace UnitTest
 {
@@ -21,8 +22,12 @@ namespace UnitTest
             Input.Direction = Constants.Directions.North;
             Input.Moves = "LMLMLMLMM";
             //WHEN
-            var output = new RoboticRover().Row(Input);
-
+            var response = new RoboticRover().Row(Input);
+            if (response.Success)
+            {
+                Assert.Fail(response.Results.FirstOrDefault().ErrorMessage);
+            }
+            var output = response.Value;
             //THEN
 
             var expectedOutput = new Output
@@ -45,7 +50,12 @@ namespace UnitTest
             Input.Moves = "MMRMMRMRRM";
 
             //WHEN
-            var output = new RoboticRover().Row(Input);
+            var response = new RoboticRover().Row(Input);
+            if (response.Success)
+            {
+                Assert.Fail(response.Results.FirstOrDefault().ErrorMessage);
+            }
+            var output = response.Value;
 
             //THEN
             var expectedOutput = new Output
@@ -58,5 +68,7 @@ namespace UnitTest
             Assert.AreEqual(expectedOutput.Coorinates.X, output.Coorinates.X);
             Assert.AreEqual(expectedOutput.Coorinates.Y, output.Coorinates.Y);
         }
+
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Constants;
+using Helper;
 using System;
 
 namespace Solution
@@ -36,7 +37,7 @@ namespace Solution
             }
         }
 
-        private void RotateToRight90Degrees ()
+        private void RotateToRight90Degrees()
         {
             switch (Direction)
             {
@@ -78,30 +79,46 @@ namespace Solution
             }
         }
 
-        public Output Row(Input input)
+        public GenericResponse<Output> Row(Input input)
         {
+            var returnObject = new GenericResponse<Output>();
             Coorinates = input.Coorinates;
             Direction = input.Direction;
-            foreach (var move in input.Moves)
+            try
             {
-                switch (move)
+                foreach (var move in input.Moves)
                 {
-                    case 'M':
-                        MoveInSameDirection();
-                        break;
-                    case 'L':
-                        RotateToLeft90Degrees();
-                        break;
-                    case 'R':
-                        RotateToRight90Degrees();
-                        break;
-                    default:
-                        throw new ArgumentException("Geçersiz Karakter");
-                }
+                    switch (move)
+                    {
+                        case Way.Swivel:
+                            MoveInSameDirection();
+                            break;
+                        case Way.Left:
+                            RotateToLeft90Degrees();
+                            break;
+                        case Way.Right:
+                            RotateToRight90Degrees();
+                            break;
+                        default:
+                            throw new ArgumentException(Messages.InvalidCharacter);
+                    }
 
-               
+
+                }
+                returnObject.Value = new Output { Coorinates = Coorinates, Direction = Direction };
+
             }
-            return new Output { Coorinates = Coorinates, Direction = Direction };
+            catch (System.Exception ex)
+            {
+
+                returnObject.Results.Add(new Result
+                {
+                    ErrorCode = ex.Message,
+                    ErrorMessage = ex.Message
+                });
+            }
+
+            return returnObject;
         }
     }
 }

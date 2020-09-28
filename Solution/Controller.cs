@@ -1,4 +1,5 @@
 ﻿using Constants;
+using Exception;
 using Extensions;
 using System;
 
@@ -16,9 +17,12 @@ namespace Solution
             {
                 throw new ArgumentNullException(Messages.MoveDirectionCanNotBeEmpty);
             }
-            if (true)
+            foreach (var item in input.Moves)
             {
-
+                if (!(item.Equals("L")|| item.Equals("M") || item.Equals("R") ))
+                {
+                    throw new InvalidCharacterException(item.ToString());
+                }
             }
             if (input.Coorinates.X < 0 || input.Coorinates.X > input.MaxPoints.X ||
                   input.Coorinates.Y < 0 || input.Coorinates.Y > input.MaxPoints.Y)

@@ -7,7 +7,7 @@ namespace Constants
     {
         public const string InvalidInput = "Geçersiz girdi değeri";
         public const string NullParamether = "Methoda gönderilen değer boş olamaz!";
-
-        public static string MoveDirectionCanNotBeEmpty { get; set; }
+        public const  string MoveDirectionCanNotBeEmpty = "Geçersiz Hareket Yönü";
+        public const  string InvalidCharacter = "geçersiz Karakter";
     }
 }

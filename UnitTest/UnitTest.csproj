@@ -60,6 +60,10 @@
       <Project>{87ca5879-2ac1-40f4-ba2f-45296223ea18}</Project>
       <Name>Constants</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Helper\Helper.csproj">
+      <Project>{60160165-31BE-4C42-AC62-240E07651CA8}</Project>
+      <Name>Helper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Solution\Solution.csproj">
       <Project>{93dc0591-5a55-4df7-b890-abebca29f39e}</Project>
       <Name>Solution</Name>
