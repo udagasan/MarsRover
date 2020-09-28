@@ -99,12 +99,7 @@ namespace Solution
                         throw new ArgumentException("Geçersiz Karakter");
                 }
 
-                if (Coorinates.X < 0 || Coorinates.X > input.MaxPoints[0] || 
-                    Coorinates.Y < 0 || Coorinates.Y > input.MaxPoints[1])
-                {
-                    throw new ArgumentOutOfRangeException($"Pozisyon (0,0) ve {input.MaxPoints[0]} , {input.MaxPoints[1]} " +
-                        $"aralığğında olmalıdır");
-                }
+               
             }
             return new Output { Coorinates = Coorinates, Direction = Direction };
         }

@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Solution;
-using System.Collections.Generic;
 
 namespace UnitTest
 {
@@ -11,7 +10,7 @@ namespace UnitTest
         [TestInitialize]
         public void InitializeTestStatic()
         {
-            Input.MaxPoints = new List<int>() { 5, 5 };
+            Input.MaxPoints = new Constants.Coorinates(5, 5);
         }
 
         [TestMethod]
@@ -38,12 +37,12 @@ namespace UnitTest
         }
 
         [TestMethod]
-        public void When_The_Input_33E_MRRMMRMRRM_The_Output_Should_Be_51E()
+        public void When_The_Input_33E_MMRRMMRMRRM_The_Output_Should_Be_51E()
         {
             //CASE
             Input.Coorinates = new Constants.Coorinates(3, 3);
-            Input.Direction = Constants.Directions.North;
-            Input.Moves = "MRRMMRMRRM";
+            Input.Direction = Constants.Directions.East;
+            Input.Moves = "MMRMMRMRRM";
 
             //WHEN
             var output = new RoboticRover().Row(Input);
@@ -51,11 +50,11 @@ namespace UnitTest
             //THEN
             var expectedOutput = new Output
             {
-                Coorinates = new Constants.Coorinates(2, 3),
-                Direction = Constants.Directions.South
+                Coorinates = new Constants.Coorinates(5, 1),
+                Direction = Constants.Directions.East
 
             };
-            Assert.AreSame(expectedOutput.Direction, output.Direction);
+            Assert.AreSame(expectedOutput.Direction.ToString(), output.Direction.ToString());
             Assert.AreEqual(expectedOutput.Coorinates.X, output.Coorinates.X);
             Assert.AreEqual(expectedOutput.Coorinates.Y, output.Coorinates.Y);
         }

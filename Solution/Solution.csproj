@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller.cs" />
     <Compile Include="DirectionDispatcher.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Output.cs" />
@@ -51,6 +52,10 @@
     <ProjectReference Include="..\Constants\Constants.csproj">
       <Project>{87ca5879-2ac1-40f4-ba2f-45296223ea18}</Project>
       <Name>Constants</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Extensions\Extensions.csproj">
+      <Project>{5C8E0177-E636-4069-8DD0-A5C8C8C26289}</Project>
+      <Name>Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
