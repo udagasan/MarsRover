@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Solution
 {
-    class Program
+    class DirectionDispatcher
     {
     }
 }
