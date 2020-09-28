@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Constants;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Solution;
 using System.Linq;
 
@@ -69,6 +70,23 @@ namespace UnitTest
             Assert.AreEqual(expectedOutput.Coorinates.Y, output.Coorinates.Y);
         }
 
+        [TestMethod]
+        public void When_The_Input_IsNull_Should_Take_An_Error()
+        {
+            //CASE
 
+            Input = null;
+            //WHEN
+            var response = new RoboticRover().Row(Input);
+
+
+            //THEN
+            if (response.Success)
+            {
+                Assert.Fail();
+            }
+
+            Assert.AreEqual(response.Results.FirstOrDefault().ErrorCode, nameof(ErrorCodes.NullParamether));
+        }
     }
 }

@@ -47,7 +47,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller.cs" />
-    <Compile Include="DirectionDispatcher.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="RoboticRover.cs" />

@@ -6,6 +6,7 @@
         InvalidInput,
         NullParamether,
         MoveDirectionCanNotBeEmpty,
-        InvalidCharacter
+        InvalidCharacter,
+        CharacterOutOfRange
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Constants;
+using Exception;
 using Helper;
 using System;
-using Constants;
 
 namespace Solution
 {
@@ -83,6 +83,12 @@ namespace Solution
         public GenericResponse<Output> Row(Input input)
         {
             var returnObject = new GenericResponse<Output>();
+            var controllerResponse = new Controller().ControlsOfInputValues(input);
+            if (!controllerResponse.Success)
+            {
+                returnObject.Results.AddRange(controllerResponse.Results);
+                return returnObject;
+            }
             Coorinates = input.Coorinates;
             Direction = input.Direction;
             try
@@ -108,6 +114,15 @@ namespace Solution
                 }
                 returnObject.Value = new Output { Coorinates = Coorinates, Direction = Direction };
 
+            }
+            catch (InvalidCharacterException ex)
+            {
+                log.Error(ex);
+                returnObject.Results.Add(new Result
+                {
+                    ErrorCode = nameof(ErrorCodes.SystemError),
+                    ErrorMessage = ex.Message
+                });
             }
             catch (System.Exception ex)
             {
