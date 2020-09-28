@@ -6,7 +6,7 @@ namespace Solution
 {
     public class RoboticRover
     {
-
+        private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private Coorinates Coorinates { get; set; }
         private Directions Direction { get; set; }
 
@@ -110,14 +110,24 @@ namespace Solution
             }
             catch (System.Exception ex)
             {
-
+                log.Error(ex);
                 returnObject.Results.Add(new Result
                 {
                     ErrorCode = ex.Message,
                     ErrorMessage = ex.Message
                 });
             }
-
+            finally
+            {
+                if (!returnObject.Success)
+                {
+                    log.Error(returnObject.Results);
+                }
+                else
+                {
+                    log.Info(returnObject.Value);
+                }
+            }
             return returnObject;
         }
     }

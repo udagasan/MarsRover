@@ -23,7 +23,7 @@ namespace UnitTest
             Input.Moves = "LMLMLMLMM";
             //WHEN
             var response = new RoboticRover().Row(Input);
-            if (response.Success)
+            if (!response.Success)
             {
                 Assert.Fail(response.Results.FirstOrDefault().ErrorMessage);
             }
@@ -51,7 +51,7 @@ namespace UnitTest
 
             //WHEN
             var response = new RoboticRover().Row(Input);
-            if (response.Success)
+            if (!response.Success)
             {
                 Assert.Fail(response.Results.FirstOrDefault().ErrorMessage);
             }

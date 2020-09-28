@@ -67,7 +67,7 @@ namespace Helper
         {
             get
             {
-                return Results.Any();
+                return !Results.Any();
             }
         }
 
